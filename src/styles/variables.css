@@ -1,6 +1,7 @@
-:root{
-    --white: #FFF;
+:root {
+    --white: #fff;
     --black: #000;
 
-
+    --bg-color: rgb(221, 60, 60);
+    --white-opacity-4: rgba(255, 255, 255, 0.4);
 }

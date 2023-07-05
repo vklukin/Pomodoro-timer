@@ -1,9 +1,30 @@
 @import "fonts.css";
 @import "variables.css";
+@import "./_header.css";
+@import "./_main.css";
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    background-color: var(--bg-color);
+}
+
+p,
+a,
+span,
+button,
+label,
+input {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+}
+
+main {
+    margin: 50px 0;
+}

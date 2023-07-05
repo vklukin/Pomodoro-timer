@@ -1,0 +1,64 @@
+header {
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 700px;
+
+    margin: 0 auto;
+    padding: 30px 0;
+
+    border-bottom: 1px solid var(--white);
+}
+
+.align-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.align-container .logo span {
+    color: var(--white);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.align-container .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.align-container .buttons button {
+    height: 35px;
+    width: 130px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border: none;
+    border-radius: 2px;
+
+    background-color: var(--white-opacity-4);
+
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 500;
+
+    cursor: pointer;
+}
+
+.align-container .buttons button svg {
+    height: 25px;
+    width: 25px;
+
+    fill: var(--white);
+}
