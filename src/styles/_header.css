@@ -1,3 +1,13 @@
+@keyframes button_hover_effect {
+    60% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 header {
     height: auto;
 
@@ -6,10 +16,7 @@ header {
     justify-content: center;
 }
 
-.container {
-    width: 700px;
-
-    margin: 0 auto;
+header .container {
     padding: 30px 0;
 
     border-bottom: 1px solid var(--white);
@@ -47,13 +54,17 @@ header {
     border: none;
     border-radius: 2px;
 
-    background-color: var(--white-opacity-4);
+    background-color: var(--white-opacity-2);
 
     color: var(--white);
     font-size: 1.1rem;
     font-weight: 500;
 
     cursor: pointer;
+}
+
+.align-container .buttons button:hover {
+    animation: button_hover_effect 0.2s ease-out;
 }
 
 .align-container .buttons button svg {

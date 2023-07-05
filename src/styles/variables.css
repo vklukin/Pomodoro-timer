@@ -3,5 +3,8 @@
     --black: #000;
 
     --bg-color: rgb(221, 60, 60);
+    --white-opacity-7: rgba(255, 255, 255, 0.7);
     --white-opacity-4: rgba(255, 255, 255, 0.4);
+    --white-opacity-3: rgba(255, 255, 255, 0.3);
+    --white-opacity-2: rgba(255, 255, 255, 0.2);
 }
