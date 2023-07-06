@@ -30,6 +30,7 @@
     justify-content: center;
 
     gap: 5px;
+    width: 235px;
 }
 
 #timer__counter {
@@ -39,16 +40,24 @@
     line-height: 0.9;
 }
 
-#timer__end-time {
+.timer_descr {
     color: var(--white);
 
     font-size: 1.2rem;
     font-weight: 400;
 
+    text-align: center;
+}
+
+#timer__end-time {
+    margin-bottom: 5px;
+}
+
+#timer__laps {
     margin-bottom: 20px;
 }
 
-#timer__end-time span {
+.timer_descr span {
     font-weight: 500;
     text-decoration: underline;
     text-underline-offset: 5px;
@@ -82,4 +91,8 @@
 
 .timer__buttons button:hover {
     animation: button_hover_effect 0.2s ease-out;
+}
+
+.timer__buttons button:disabled {
+    cursor: not-allowed;
 }
