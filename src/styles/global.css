@@ -2,6 +2,7 @@
 @import "variables.css";
 @import "./_header.css";
 @import "./_main.css";
+@import "./_modal.css";
 
 *,
 *::before,
@@ -23,6 +24,14 @@ label,
 input {
     font-family: Inter, sans-serif;
     font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Inter, sans-serif;
+    font-weight: 700;
+    color: var(--header-text-color);
 }
 
 main {

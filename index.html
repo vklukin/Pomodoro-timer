@@ -15,8 +15,86 @@
         />
         <link href="./src/styles/global.css" rel="stylesheet" />
         <script src="./src/scripts/dist/timer.js" defer></script>
+        <script src="./src/scripts/dist/settingsModal.js" defer></script>
     </head>
     <body>
+        <div id="modal_settings" class="show_modal">
+            <div class="close_shroud">
+                <p class="hint">Click on area to close the window</p>
+            </div>
+            <div class="modal__wrapper">
+                <form>
+                    <section>
+                        <h2>Timer</h2>
+                        <article class="modal_block">
+                            <h3>Work time</h3>
+                            <div class="entity__wrapper">
+                                <label for="work_time__minutes">
+                                    Minutes:
+                                    <input
+                                        type="number"
+                                        id="work_time__minutes"
+                                        placeholder="25"
+                                    />
+                                </label>
+                                <label for="work_time__seconds">
+                                    Seconds:
+                                    <input
+                                        type="number"
+                                        id="work_time__seconds"
+                                        placeholder="30"
+                                    />
+                                </label>
+                            </div>
+                        </article>
+                        <article class="modal_block">
+                            <h3>Rest time</h3>
+                            <div class="entity__wrapper">
+                                <label for="rest_time__minutes">
+                                    Minutes:
+                                    <input
+                                        type="number"
+                                        id="rest_time__minutes"
+                                        placeholder="5"
+                                    />
+                                </label>
+                                <label for="rest_time__seconds">
+                                    Seconds:
+                                    <input
+                                        type="number"
+                                        id="rest_time__seconds"
+                                        placeholder="30"
+                                    />
+                                </label>
+                            </div>
+                        </article>
+                    </section>
+                    <section>
+                        <h2>Theme</h2>
+                        <article class="modal_block">
+                            <div class="entity__wrapper">
+                                <label for="work__color">
+                                    Work:
+                                    <input
+                                        type="color"
+                                        id="work__color"
+                                        value="#dd3c3c"
+                                    />
+                                </label>
+                                <label for="rest__color">
+                                    Rest:
+                                    <input
+                                        type="color"
+                                        id="rest__color"
+                                        value="#008000"
+                                    />
+                                </label>
+                            </div>
+                        </article>
+                    </section>
+                </form>
+            </div>
+        </div>
         <header>
             <div class="container">
                 <div class="align-container">
