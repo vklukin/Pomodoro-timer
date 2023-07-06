@@ -4,8 +4,8 @@ const timer = document.getElementById("timer__counter")!;
 const emptyEndTimer = document.querySelector("#timer__end-time")!;
 const timerLaps = document.querySelector("#timer__laps")!;
 
-let bgColor = "rgb(221, 60, 60)";
-let restBgColor = "green";
+let bgColor = "#dd3c3c";
+let restBgColor = "#008000";
 let processLoops: number = 4;
 let minutes: number = 25;
 let seconds: number = 0;
