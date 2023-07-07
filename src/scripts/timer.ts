@@ -56,6 +56,7 @@ class Timer {
                 isRest &&
                 counter === loops
             ) {
+                playSound(selectedOption.dataset.value, soundVolumeInput.value);
                 return Timer.stop(initialMinutes, initialSeconds);
             }
             if (workMinutes === 0 && workSeconds === 0 && !isRest) {
@@ -64,6 +65,7 @@ class Timer {
                 workSeconds = initialRSeconds;
                 setStopTimerTime(workMinutes, workSeconds);
                 isRest = true;
+                playSound(selectedOption.dataset.value, soundVolumeInput.value);
             }
             if (workMinutes === 0 && workSeconds === 0 && isRest) {
                 document.body.style.backgroundColor = workBgColor;
@@ -72,6 +74,7 @@ class Timer {
                 setStopTimerTime(workMinutes, workSeconds);
                 isRest = false;
                 counter += 1;
+                playSound(selectedOption.dataset.value, soundVolumeInput.value);
                 timerLaps.innerHTML = `Laps: <span>${counter}/${loops}</span>`;
             }
 

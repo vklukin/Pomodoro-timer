@@ -96,6 +96,66 @@
                             </div>
                         </article>
                     </section>
+                    <section>
+                        <h2>Sound</h2>
+                        <article class="modal_block">
+                            <div class="entity__wrapper">
+                                <label for="audio_sound">
+                                    Sound:
+                                    <div id="select_list">
+                                        <div id="selected_item__wrapper">
+                                            <span
+                                                id="selected_item"
+                                                data-select-index="0"
+                                                data-value="#"
+                                                >None</span
+                                            >
+                                        </div>
+                                        <svg
+                                            width="20"
+                                            height="15"
+                                            viewBox="0 0 20 15"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path
+                                                d="M1 15H19C19.1822 14.9994 19.3609 14.9492 19.5167 14.8546C19.6725 14.7601 19.7995 14.6248 19.8842 14.4634C19.9688 14.3021 20.0079 14.1206 19.9971 13.9387C19.9863 13.7568 19.9261 13.5813 19.823 13.431L10.823 0.431C10.45 -0.108 9.552 -0.108 9.178 0.431L0.178 13.431C0.0738245 13.5809 0.0127338 13.7566 0.00136481 13.9388C-0.0100041 14.121 0.0287835 14.3029 0.113514 14.4646C0.198244 14.6263 0.325675 14.7618 0.481964 14.8561C0.638252 14.9505 0.81742 15.0003 1 15ZM10 2.757L17.092 13H2.908L10 2.757Z"
+                                                fill="#aaa"
+                                            />
+                                        </svg>
+
+                                        <div class="options" id="option_list">
+                                            <div class="option">
+                                                <span
+                                                    data-select-index="0"
+                                                    data-value="#"
+                                                    >None</span
+                                                >
+                                            </div>
+                                            <div class="option">
+                                                <span
+                                                    data-select-index="1"
+                                                    data-value="https://assets.mixkit.co/active_storage/sfx/861/861-preview.mp3"
+                                                    >Ring</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </label>
+                                <label for="volume_sound">
+                                    Volume:
+                                    <input
+                                        type="range"
+                                        id="volume_sound"
+                                        min="0"
+                                        value="50"
+                                        max="100"
+                                        step="5"
+                                    />
+                                </label>
+                            </div>
+                        </article>
+                    </section>
                 </form>
             </div>
         </div>
