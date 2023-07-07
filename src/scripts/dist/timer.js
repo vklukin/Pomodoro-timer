@@ -4,27 +4,14 @@ const stopButton = document.getElementById("end_button");
 const timer = document.getElementById("timer__counter");
 const emptyEndTimer = document.querySelector("#timer__end-time");
 const timerLaps = document.querySelector("#timer__laps");
-let bgColor = "#dd3c3c";
+let workBgColor = "#dd3c3c";
 let restBgColor = "#008000";
 let processLoops = 4;
-let minutes = 25;
-let seconds = 0;
+let workMinutes = 25;
+let workSeconds = 0;
 let restTimeMinutes = 5;
 let restTimeSeconds = 0;
-window.addEventListener("load", () => {
-    if (localStorage.getItem("bg-color"))
-        bgColor = JSON.parse(localStorage.getItem("bg-color"));
-    if (localStorage.getItem("timer counter")) {
-        const { processLoops: loops, minutes: min, seconds: sec, restTimeMinutes: restMin, restTimeSeconds: restSec } = JSON.parse(localStorage.getItem("timer counter"));
-        processLoops = loops || 4;
-        minutes = min || 25;
-        seconds = sec || 0;
-        restTimeMinutes = restMin || 5;
-        restTimeSeconds = restSec || 0;
-    }
-    document.body.style.backgroundColor = bgColor;
-});
-timer.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+timer.textContent = `${workMinutes < 10 ? "0" + workMinutes : workMinutes}:${workSeconds < 10 ? "0" + workSeconds : workSeconds}`;
 emptyEndTimer.textContent = "Start the timer to display the end time";
 function setStopTimerTime(m, s) {
     let initialEndTime = "";
@@ -37,49 +24,55 @@ function setStopTimerTime(m, s) {
     emptyEndTimer.innerHTML = `End time: <span>${initialEndTime}</span>`;
 }
 class Timer {
-    static start(minutes, seconds, rMinutes, rSeconds, loops) {
-        const initialMinutes = minutes;
-        const initialSeconds = seconds;
+    static start(workMinutes, workSeconds, rMinutes, rSeconds, loops) {
+        const initialMinutes = workMinutes;
+        const initialSeconds = workSeconds;
         const initialRMinutes = rMinutes;
         const initialRSeconds = rSeconds;
         let isRest = false;
         let counter = 0;
         timerLaps.innerHTML = `Laps: <span>${counter}/${loops}</span>`;
         Timer._intervalId = setInterval(() => {
-            if (minutes === 0 && seconds === 0 && isRest && counter === loops) {
+            if (workMinutes === 0 &&
+                workSeconds === 0 &&
+                isRest &&
+                counter === loops) {
+                playSound(selectedOption.dataset.value, soundVolumeInput.value);
                 return Timer.stop(initialMinutes, initialSeconds);
             }
-            if (minutes === 0 && seconds === 0 && !isRest) {
+            if (workMinutes === 0 && workSeconds === 0 && !isRest) {
                 document.body.style.backgroundColor = restBgColor;
-                minutes = initialRMinutes;
-                seconds = initialRSeconds;
-                setStopTimerTime(minutes, seconds);
+                workMinutes = initialRMinutes;
+                workSeconds = initialRSeconds;
+                setStopTimerTime(workMinutes, workSeconds);
                 isRest = true;
+                playSound(selectedOption.dataset.value, soundVolumeInput.value);
             }
-            if (minutes === 0 && seconds === 0 && isRest) {
-                document.body.style.backgroundColor = bgColor;
-                minutes = initialMinutes;
-                seconds = initialSeconds;
-                setStopTimerTime(minutes, seconds);
+            if (workMinutes === 0 && workSeconds === 0 && isRest) {
+                document.body.style.backgroundColor = workBgColor;
+                workMinutes = initialMinutes;
+                workSeconds = initialSeconds;
+                setStopTimerTime(workMinutes, workSeconds);
                 isRest = false;
                 counter += 1;
+                playSound(selectedOption.dataset.value, soundVolumeInput.value);
                 timerLaps.innerHTML = `Laps: <span>${counter}/${loops}</span>`;
             }
-            if (seconds === 0) {
-                minutes -= 1;
-                seconds = 59;
+            if (workSeconds === 0) {
+                workMinutes -= 1;
+                workSeconds = 59;
             }
             else {
-                seconds -= 1;
+                workSeconds -= 1;
             }
-            timer.textContent = `${minutes < 10 ? "0" + minutes : minutes}:${seconds < 10 ? "0" + seconds : seconds}`;
+            timer.textContent = `${workMinutes < 10 ? "0" + workMinutes : workMinutes}:${workSeconds < 10 ? "0" + workSeconds : workSeconds}`;
         }, 1000);
     }
     static stop(m, s) {
         clearInterval(Timer._intervalId);
         startButton.removeAttribute("disabled");
         stopButton.setAttribute("disabled", "true");
-        document.body.style.backgroundColor = bgColor;
+        document.body.style.backgroundColor = workBgColor;
         emptyEndTimer.textContent = "Start the timer to display the end time";
         timer.textContent = `${m < 10 ? "0" + m : m}:${s < 10 ? "0" + s : s}`;
         timerLaps.textContent = "";
@@ -88,9 +81,9 @@ class Timer {
 const onStartTimer = () => {
     startButton.setAttribute("disabled", "true");
     stopButton.removeAttribute("disabled");
-    setStopTimerTime(minutes, seconds);
-    Timer.start(minutes, seconds, restTimeMinutes, restTimeSeconds, processLoops);
+    setStopTimerTime(workMinutes, workSeconds);
+    Timer.start(workMinutes, workSeconds, restTimeMinutes, restTimeSeconds, processLoops);
 };
-const onStopTimer = () => Timer.stop(minutes, seconds);
+const onStopTimer = () => Timer.stop(workMinutes, workSeconds);
 startButton.addEventListener("click", onStartTimer);
 stopButton.addEventListener("click", onStopTimer);

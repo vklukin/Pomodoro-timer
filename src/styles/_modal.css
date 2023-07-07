@@ -18,9 +18,13 @@
     width: 100%;
     height: 100%;
 
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+}
+
+#modal_settings.show_modal {
+    display: flex;
 }
 
 #modal_settings.show_modal .modal__wrapper {
@@ -114,7 +118,8 @@
     gap: 5px;
 }
 
-.entity__wrapper label input {
+.entity__wrapper label input,
+.entity__wrapper label #select_list {
     width: 100%;
 
     outline: none;
@@ -126,9 +131,83 @@
     font-size: 1.2rem;
 
     background-color: var(--white);
+
+    position: relative;
 }
 
 .entity__wrapper label input[type="color"] {
     padding: 0;
     height: 30px;
+}
+
+#select_list svg {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    transform: rotate(180deg) scale(0.8);
+
+    pointer-events: none;
+    user-select: none;
+}
+
+#select_list span {
+    user-select: none;
+}
+
+#select_list svg:has(+ .options.show_options) {
+    transform: scale(0.8);
+    top: 5px;
+}
+
+#select_list .options {
+    width: 101%;
+
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    z-index: 2002;
+
+    transform: translateY(100%);
+
+    border: 1px solid var(--header-text-color);
+    border-radius: 2px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#select_list .options {
+    max-height: 86px;
+    overflow-y: scroll;
+
+    display: none;
+}
+
+#select_list .options.show_options {
+    display: flex;
+}
+
+#select_list .options .option,
+#select_list .options .option span {
+    width: 100%;
+}
+
+#select_list .options .option span {
+    pointer-events: none;
+    user-select: none;
+}
+
+#select_list .options .option {
+    background-color: var(--options-color);
+    padding: 2px 0;
+}
+
+#select_list .options .option:hover {
+    background-color: var(--white);
+}
+
+#select_list .options .option span {
+    padding: 0 10px;
 }
